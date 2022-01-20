@@ -8,7 +8,7 @@ module UserConcern
     validates :email, uniqueness: true
     validates :first_name, length: { within: 1..30 }
     validates :password, length: { minimum: 6 }
-    validates_format_of :email, with: /[a-z0-9]+@/i
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     has_secure_password
   end
