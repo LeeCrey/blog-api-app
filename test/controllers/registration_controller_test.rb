@@ -11,7 +11,7 @@ class RegistrationControllerTest < ActionDispatch::IntegrationTest
   test 'should return error' do
     post register_url, params: { user: @data }, as: :json
     assert_response :unprocessable_entity
-    assert_equal @response.body, %({"okay":false,"error":{"email":["has already been taken"]}})
+    assert_equal @response.body, %({"error":{"email":["has already been taken"]}})
   end
 
   test 'should return authorization token' do

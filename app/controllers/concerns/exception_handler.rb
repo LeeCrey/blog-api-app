@@ -51,6 +51,6 @@ module ExceptionHandler
 
   ##
   def render_error_response(msg, status)
-    render json: { okay: false, error: msg }, status: status
+    render json: { error: msg }, status: status
   end
 end

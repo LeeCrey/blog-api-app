@@ -10,7 +10,7 @@ class AuthenticationControllerTest < ActionDispatch::IntegrationTest
     post login_url, params: { user: @data }, as: :json
     assert_response :unauthorized
 
-    assert_equal @response.body, %({"okay":false,"error":"Invalid data"})
+    assert_equal @response.body, %({"error":"Invalid data"})
   end
 
   test 'should be authorized' do
