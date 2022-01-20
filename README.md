@@ -14,22 +14,22 @@
 * Install Gems
 
 ```
-bundle install
+  bundle install
 ```
 
 * Migrate the database
 
 ```
-rake db:migrate
+  rake db:migrate
 ```
 
 * Run the server
 
 ```
-rails s
+  rails s
 ```
 
-* Open a new Terminal tab and test the apis
+* Open a new terminal tab and test the apis
 
 ## APIS
 ```
@@ -68,3 +68,8 @@ rails s
 Check out [test.sh](api_test.sh) or [test.rb](test.rb) file.
 
 **NB:** You need to pass authorization token through header to do **post**, **patch** and **delete** operations. Get(read) operation does not need authorization token.
+
+
+```
+  $ rails test
+```
