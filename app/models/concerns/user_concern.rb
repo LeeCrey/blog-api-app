@@ -5,10 +5,11 @@ module UserConcern
 
   included do
     validates :email, :first_name, presence: true
-    validates :email, uniqueness: true
+    validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :first_name, length: { within: 1..30 }
+    # last can be nil but if it exist, its length should not exceed 30 chars
+    validates :last_name, length: { within: 1..30 }, if: -> { last_name.present? }
     validates :password, length: { minimum: 6 }
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     has_secure_password
   end
