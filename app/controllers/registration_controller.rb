@@ -7,7 +7,7 @@ class RegistrationController < ApplicationController
   def create
     user = User.new register_params
     if user.save
-      render json: { okay: true, authorization: user.token_get }, status: :created
+      render json: { authorization: user.token_get }, status: :created
     else
       render_error_response user.errors, :unprocessable_entity
     end

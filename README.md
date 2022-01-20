@@ -10,17 +10,22 @@
 
 #### Clone the repo into your local machine
 
-
 * Install Gems
 
 ```
-  bundle install
+  $ bundle install
 ```
 
 * Migrate the database
 
 ```
-  rake db:migrate
+  $ rake db:migrate
+```
+
+* Seed the database
+
+```
+  $ rake db:seed
 ```
 
 * Run the server
@@ -69,7 +74,7 @@ Check out [test.sh](api_test.sh) or [test.rb](test.rb) file.
 
 **NB:** You need to pass authorization token through header to do **post**, **patch** and **delete** operations. Get(read) operation does not need authorization token.
 
-
+***Test***
 ```
   $ rails test
 ```

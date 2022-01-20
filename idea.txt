@@ -1,15 +1,17 @@
 # IDEA
 
-1: add to support comment replies
+=> add to support replies
 
-2: add to support attachments(images)
+=> password reset
+
+=> add to support attachments(images)
 
 ## Optional
 
-3: add follower feature
+=> add follower feature
   => followers
   => followings
 
-4: make to support read/unread feature
+=> make to support read/unread feature
 
-5: show unread posts in root route(home page) from followings people
+=> show unread posts in root route(home page) from followings people
