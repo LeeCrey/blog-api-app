@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+leecrey:
+  first_name: Lee
+  email: already-taken@gmail.com
+  # password: hello world
+  password_digest: $2a$12$8tD0mfwPrbRrEtWPzYKIiOteVE6FouqSLWcPrxZOEe3GJQQaUMUPy
+
+david:
+  first_name: David
+  email: david11@gmail.com
+  # password: hello-world
+  password_digest: $2a$12$cqqLsDIg3wsQS68rNDueheBVB.sk.WU9I43nCXORpKyxJganyBNh.

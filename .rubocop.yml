@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 3.0.2
+  Exclude:
+    - 'config.ru'
+    - 'Rakefile'
+    - 'config/**/*'
+    - 'bin/*'
+    - 'test/**/*'
+    - 'spec/**/'
+    - 'db/**/*'
+    - 'api_test.rb'
+
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
