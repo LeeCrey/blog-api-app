@@ -31,10 +31,10 @@
 #        http://localhost:3000/posts && echo
 
 ### Get posts
-curl -H "Content-type: application/json" \
-     -X GET \
-     -d ' {"p":"1"} ' \
-      http://localhost:3000/posts && echo
+# curl -H "Content-type: application/json" \
+#      -X GET \
+#      -d ' {"p":"1"} ' \
+#       http://localhost:3000/posts && echo
 
 ### GET single post
 # curl -H "Content-type: application/json" \
