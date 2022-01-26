@@ -4,7 +4,7 @@ module UserConcern
   extend ActiveSupport::Concern
 
   included do
-    validates :email, :first_name, presence: true
+    validates :email, :first_name, :password, presence: true
     validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :first_name, length: { within: 1..30 }
     # last can be nil but if it exist, its length should not exceed 30 chars
@@ -12,10 +12,6 @@ module UserConcern
     validates :password, length: { minimum: 6 }
 
     has_secure_password
-  end
-
-  def authenticate(pwd)
-    password == pwd
   end
 
   def token_get
