@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
   skip_before_action :authorize_api_request!
 
   # POST /login or POST /
-  defgit create
+  def create
     token = AuthenticateUser.new(login_params).call
     if token.present?
       render json: { authorization: token }
