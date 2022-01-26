@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
     if token.present?
       render json: { authorization: token }
     else
-      render_error_response 'Invalid data', :unauthorized
+      render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
   end
 
