@@ -9,18 +9,18 @@ class RegistrationController < ApplicationController
     if user.save
       render json: { authorization: user.token_get }, status: :created
     else
-      render_error_response user.errors, :unprocessable_entity
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /users
   def destroy
-    pwd = delete_params[:confirmation_password]
+    pwd = delete_params[:password]
     if @current_user.authenticate(pwd)
       @current_user.destroy
       head :no_content
     else
-      render json: { okay: false, reason: 'Incorrect email or password' }, status: :unauthorized
+      render json: { error: 'Incorrect email or password' }, status: :unauthorized
     end
   end
 
@@ -31,6 +31,6 @@ class RegistrationController < ApplicationController
   end
 
   def delete_params
-    params.permit(:confirmation_password)
+    params.require(:confirmation).permit(:password)
   end
 end
