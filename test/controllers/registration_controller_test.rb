@@ -11,7 +11,7 @@ class RegistrationControllerTest < ActionDispatch::IntegrationTest
   test 'should return error' do
     post register_url, params: { user: @data }, as: :json
     assert_response :unprocessable_entity
-    assert_equal @response.body, %({"error":{"email":["has already been taken"]}})
+    assert_equal @response.body, %({"email":["has already been taken"]})
   end
 
   test 'should return authorization token' do
@@ -31,7 +31,7 @@ class RegistrationControllerTest < ActionDispatch::IntegrationTest
   test 'should remove account' do
     token = @user.token_get
     delete users_url, headers: { 'Authorization': token },
-                      params: { confirmation_password: 'hello world' }, as: :json
+                      params: { confirmation: { password: 'hello world' } }, as: :json
     assert_response :no_content, 'request was unauthorized with correct token'
   end
 end
