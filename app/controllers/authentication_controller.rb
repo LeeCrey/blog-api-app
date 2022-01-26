@@ -4,12 +4,12 @@ class AuthenticationController < ApplicationController
   skip_before_action :authorize_api_request!
 
   # POST /login or POST /
-  def create
+  defgit create
     token = AuthenticateUser.new(login_params).call
     if token.present?
       render json: { authorization: token }
     else
-      render json: { error: 'Invalid username or password' }, status: :unauthorized
+      render json: { error: 'Incorrect username or password' }, status: :unauthorized
     end
   end
 
