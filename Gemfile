@@ -19,6 +19,7 @@ gem 'active_model_serializers', '~> 0.10.13'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rdoc'
+  gem 'psych'
   # gem 'rspec-rails'
 end
 

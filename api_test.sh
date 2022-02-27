@@ -2,10 +2,10 @@
 
 ## Registration
 
-# curl -H "Content-type: application/json" \
-#      -X POST \
-#      -d ' {"user":{"first_name":"Joh","email":"john@gmail.com","password":"123456789"}} ' \
-#        http://localhost:3000/register
+curl -H "Content-type: application/json" \
+     -X POST \
+     -d ' {"user":{"first_name":"Joh","email":"john@gmail.com","password":"123456789"}} ' \
+       http://localhost:3000/register
 
 ## Login
 #
