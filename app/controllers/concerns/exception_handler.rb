@@ -11,6 +11,7 @@ module ExceptionHandler
     rescue_from CommentNotFoundException, with: :comment_not_found
     rescue_from PostNotFoundException, with: :post_not_found
     rescue_from InvalidTokenException, with: :invalid_token_exception
+    rescue_from ActiveSupport::MessageEncryptor::InvalidMessage, with: :invalid_token_exception
   end
 
   private
