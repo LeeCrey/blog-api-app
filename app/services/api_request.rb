@@ -16,7 +16,8 @@ class ApiRequest
   private
 
   def user_data_get
-    JsonWebToken.decode(authorization_token)
+    token = MessageEncrypt.new.decrypt(authorization_token)
+    JsonWebToken.decode(token)
   end
 
   def authorization_token

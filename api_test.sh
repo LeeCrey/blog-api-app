@@ -2,10 +2,10 @@
 
 ## Registration
 
-curl -H "Content-type: application/json" \
-     -X POST \
-     -d ' {"user":{"first_name":"Joh","email":"john@gmail.com","password":"123456789"}} ' \
-       http://localhost:3000/register
+# curl -H "Content-type: application/json" \
+#      -X POST \
+#      -d ' {"user":{"first_name":"Joh","email":"john@gmail.com","password":"123456789"}} ' \
+#        http://localhost:3000/register && echo
 
 ## Login
 #
@@ -24,11 +24,11 @@ curl -H "Content-type: application/json" \
 ## Posts
 
 ### New post
-# curl -H "Content-type: application/json" \
-#      -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwiZXhwIjoxNjQzMTU0MzE3fQ.yg_qrTxYNF_yniew2XjPYLsfR41NJMgQ0Q_mXIw0kik" \
-#      -X POST \
-#      -d ' {"post":{"title":"hello world","content":"THis is hello world post"}} ' \
-#        http://localhost:3000/posts && echo
+curl -H "Content-type: application/json" \
+     -H "Authorization: Bearer S18uuDA+lNU9LVyW4uTKS4bqTC58azFKUIHtPHxFldKlU7jvZ383XzzdJYYLqU70GejkHNEZqyO0cQEvixnMk73dNmGfCuE9Vh8gilMXv9FuxLtVxEynV1GMarcLe06jxDeU+QKGQ04GSIwzRAEz45tNAQqHTHphA3m8L5vslbcfoDEdc6w=--fN8vB8moC6PU3eeY--Rcjd2I/WJAVJ+7lax++Hag==" \
+     -X POST \
+     -d ' {"post":{"title":"hello world","content":"THis is hello world post"}} ' \
+       http://localhost:3000/posts && echo
 
 ### Get posts
 # curl -H "Content-type: application/json" \

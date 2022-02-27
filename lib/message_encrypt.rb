@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MessageCrypt
+class MessageEncrypt
   def initialize
     @salt = Rails.application.credentials.salt_for_message
     @key_gen  = Rails.application.credentials.key_gen
