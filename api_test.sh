@@ -25,16 +25,16 @@
 
 ### New post
 # curl -H "Content-type: application/json" \
-#      -H "Authorization: Bearer S18uuDA+lNU9LVyW4uTKS4bqTC58azFKUIHtPHxFldKlU7jvZ383XzzdJYYLqU70GejkHNEZqyO0cQEvixnMk73dNmGfCuE9Vh8gilMXv9FuxLtVxEynV1GMarcLe06jxDeU+QKGQ04GSIwzRAEz45tNAQqHTHphA3m8L5vslbcfoDEdc6w=--fN8vB8moC6PU3eeY--Rcjd2I/WJAVJ+7lax++Hag==" \
+#      -H "Authorization: Bearer 3S+Dw4dwyxpK36x3LvEfNF5d64THAUL5Xc8mAGaWhilsLclwkbWKmqRxUCHDzB9+866OR4V1SOLs2BUdcc7YOLnLuP9V7chX95zuAM8PwgKcJCDW+zfZHDjkQ/GVu9F1tw==--S2DfSK9Q1v9oYicj--TDRRNCXvktOySUOzsmulQg==x" \
 #      -X POST \
 #      -d ' {"post":{"title":"hello world","content":"THis is hello world post"}} ' \
 #        http://localhost:3000/posts && echo
 
 ### Get posts
-curl -H "Content-type: application/json" \
-     -X GET \
-     -d ' {"p":"1"} ' \
-      http://localhost:3000/posts && echo
+# curl -H "Content-type: application/json" \
+#      -X GET \
+#      -d ' {"p":"1"} ' \
+#       http://localhost:3000/posts && echo
 
 ### GET single post
 # curl -H "Content-type: application/json" \

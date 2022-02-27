@@ -7,7 +7,8 @@ class AuthenticationController < ApplicationController
   def create
     token = AuthenticateUser.new(login_params).call
     if token.present?
-      render json: { authorization: token }
+      crypt_msg = MessageEncrypt.new.encrypt(token)
+      render json: { authorization: crypt_msg }
     else
       render json: { error: 'Incorrect username or password' }, status: :unauthorized
     end
