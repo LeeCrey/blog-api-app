@@ -29,7 +29,7 @@ class RegistrationControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should remove account' do
-    token = @user.token_get
+    token = MessageEncrypt.new.encrypt(@user.token_get)
     delete users_url, headers: { 'Authorization': token },
                       params: { confirmation: { password: 'hello world' } }, as: :json
     assert_response :no_content, 'request was unauthorized with correct token'
