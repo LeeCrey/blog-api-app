@@ -5,6 +5,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @david = users(:david)
     @user = users(:leecrey)
     @post = posts(:first)
+    @crypt = MessageEncrypt.new
+    @token = @crypt.encrypt(@user.token_get)
   end
 
   test 'should get index' do
@@ -13,9 +15,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should be un authorized' do
-    token = @user.token_get + 'xyz'
+    @token += 'x'
     hash = { content: @post.content, user_id: @post.user_id }
-    post posts_url, headers: { Authorization: token },
+    post posts_url, headers: { Authorization: @token },
                     params: { post: hash },
                     as: :json
 
@@ -23,9 +25,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
-    token = @user.token_get
     assert_difference('Post.count') do
-      post posts_url, headers: { Authorization: token },
+      post posts_url, headers: { Authorization: @token },
                       params: { post: { content: @post.content, user_id: @post.user_id } },
                       as: :json
     end
@@ -39,22 +40,23 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should be unauthorized' do
+    @token += 'x'
     hash = { content: @post.content, user_id: @post.user_id }
-    patch post_url(@post), params: { post: hash }, as: :json
+    patch post_url(@post), headers: { Authorization: @token },
+                          params: { post: hash }, as: :json
     assert_response :unauthorized
   end
 
   test 'should update post' do
-    token = @user.token_get
     hash = { content: @post.content, user_id: @post.user_id }
-    patch post_url(@post), headers: { Authorization: token },
+    patch post_url(@post), headers: { Authorization: @token },
                             params: { post: hash }, as: :json
     assert_response :success
   end
 
   test 'should not be destroyed' do
     # david is trying to delete leecrey's post
-    token = @david.token_get
+    token = @crypt.encrypt(@david.token_get)
     assert_difference('Post.count', 0) do
       delete post_url(@post), headers: { Authorization: token }, as: :json
     end
@@ -63,9 +65,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy post' do
-    token = @user.token_get
     assert_difference('Post.count', -1) do
-      delete post_url(@post), headers: { Authorization: token }, as: :json
+      delete post_url(@post), headers: { Authorization: @token }, as: :json
     end
 
     assert_response :no_content
