@@ -24,17 +24,17 @@
 ## Posts
 
 ### New post
-curl -H "Content-type: application/json" \
-     -H "Authorization: Bearer S18uuDA+lNU9LVyW4uTKS4bqTC58azFKUIHtPHxFldKlU7jvZ383XzzdJYYLqU70GejkHNEZqyO0cQEvixnMk73dNmGfCuE9Vh8gilMXv9FuxLtVxEynV1GMarcLe06jxDeU+QKGQ04GSIwzRAEz45tNAQqHTHphA3m8L5vslbcfoDEdc6w=--fN8vB8moC6PU3eeY--Rcjd2I/WJAVJ+7lax++Hag==" \
-     -X POST \
-     -d ' {"post":{"title":"hello world","content":"THis is hello world post"}} ' \
-       http://localhost:3000/posts && echo
+# curl -H "Content-type: application/json" \
+#      -H "Authorization: Bearer S18uuDA+lNU9LVyW4uTKS4bqTC58azFKUIHtPHxFldKlU7jvZ383XzzdJYYLqU70GejkHNEZqyO0cQEvixnMk73dNmGfCuE9Vh8gilMXv9FuxLtVxEynV1GMarcLe06jxDeU+QKGQ04GSIwzRAEz45tNAQqHTHphA3m8L5vslbcfoDEdc6w=--fN8vB8moC6PU3eeY--Rcjd2I/WJAVJ+7lax++Hag==" \
+#      -X POST \
+#      -d ' {"post":{"title":"hello world","content":"THis is hello world post"}} ' \
+#        http://localhost:3000/posts && echo
 
 ### Get posts
-# curl -H "Content-type: application/json" \
-#      -X GET \
-#      -d ' {"p":"1"} ' \
-#       http://localhost:3000/posts && echo
+curl -H "Content-type: application/json" \
+     -X GET \
+     -d ' {"p":"1"} ' \
+      http://localhost:3000/posts && echo
 
 ### GET single post
 # curl -H "Content-type: application/json" \

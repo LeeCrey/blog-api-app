@@ -31,7 +31,6 @@ config/master.key
 ## Environment normalization:
 /.bundle
 /vendor/bundle
-/vendor/ruby
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
@@ -50,21 +49,16 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore node_modules
-node_modules/
-
 # Ignore precompiled javascript packs
 /public/packs
 /public/packs-test
 /public/assets
 
-# Ignore yarn files
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
 
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
 
 /config/master.key
+
+api_test.sh
