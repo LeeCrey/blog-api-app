@@ -5,7 +5,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:leecrey)
     @post = posts(:first)
     @comment = comments(:first)
-    @token = @user.token_get
+    @crypt = MessageEncrypt.new
+    @token = @crypt.encrypt @user.token_get
   end
 
   test 'should get index' do
@@ -55,8 +56,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not destroy comment' do
+    @token += 'x'
     assert_difference('Comment.count', 0) do
-      delete comment_url(@comment), headers: { Authorization: @token + 'x' }, as: :json
+      delete comment_url(@comment), headers: { Authorization: @token }, as: :json
     end
 
     assert_response :unauthorized
