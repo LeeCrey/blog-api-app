@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.includes(:comments).page(params[:p])
+    @posts = Post.includes(:user, [:comments]).page(params[:p])
 
     render json: @posts
   end
