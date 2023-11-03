@@ -3,24 +3,24 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.2.1'
 
-gem 'rails', '~> 7.0.0'
-gem 'puma', '~> 5.0'
-gem 'bcrypt', '~> 3.1.7'
+gem 'rails', '~> 7.1.0'
+gem 'puma'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
-gem 'jwt', '~> 2.3'
-gem 'pg', '~> 1.2'
-gem 'rack-cors', '~> 1.1'
-gem 'will_paginate', '~> 3.3'
-gem 'active_model_serializers', '~> 0.10.13'
+gem 'pg'
+gem 'rack-cors'
+gem 'devise'
+gem 'devise-jwt'
+gem 'pagy'
+gem 'pundit'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rdoc'
-  gem 'psych'
   gem 'rubocop'
+  gem 'rubocop-rails', require: false
+  gem 'figaro'
 end
 
 group :development do
