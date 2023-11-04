@@ -1,14 +1,16 @@
+require:
+  - rubocop-rails
+
 AllCops:
-  TargetRubyVersion: 3.0.2
+  TargetRubyVersion: 3.2.1
   Exclude:
-    - 'config.ru'
-    - 'Rakefile'
-    - 'config/**/*'
-    - 'bin/*'
-    - 'test/**/*'
-    - 'spec/**/'
-    - 'db/**/*'
-    - 'api_test.rb'
+    - "config.ru"
+    - "Rakefile"
+    - "config/**/*"
+    - "bin/*"
+    - "test/**/*"
+    - "spec/**/"
+    - "db/**/*"
 
   NewCops: enable
 
