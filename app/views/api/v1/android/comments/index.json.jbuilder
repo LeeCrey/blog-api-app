@@ -2,7 +2,7 @@
 
 json.ok true
 
-json.posts do
+json.comments do
   json.partial! 'api/v1/android/comments/comment', collection: @comments, as: :comment
 end
 
