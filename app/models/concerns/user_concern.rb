@@ -17,6 +17,10 @@ module UserConcern
   end
 
   def to_s
+    full_name
+  end
+
+  def full_name
     return first_name if last_name.blank?
 
     "#{first_name} #{last_name}"
