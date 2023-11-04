@@ -6,6 +6,7 @@ class Api::V1::Android::PostsController < ApplicationController
 
   include Pundit::Authorization
 
+  before_action :authenticate_user!
   before_action :set_post, only: %i[update destroy]
 
   # GET /posts

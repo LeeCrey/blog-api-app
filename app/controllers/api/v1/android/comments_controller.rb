@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Api::V1::Android::CommentsController < ApplicationController
+  protect_from_forgery with: :null_session
+  respond_to :json
+
+  include Pundit::Authorization
+
+  before_action :authenticate_user!
   before_action :set_comment, only: %i[show update destroy]
   before_action :set_post, only: %i[index create]
 
