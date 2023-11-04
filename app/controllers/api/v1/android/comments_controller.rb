@@ -12,9 +12,8 @@ class Api::V1::Android::CommentsController < ApplicationController
 
   # GET /api/v1/android/posts/:post_id/comments
   def index
-    @comments = @post.comments
-
-    render json: @comments
+    comments = @post.comments.includes(:user)
+    @pagy, @comments = pagy(comments)
   end
 
   # POST /api/v1/android/posts/:post_id/comments
