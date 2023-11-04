@@ -4,12 +4,9 @@ common: &common
 
 development:
   <<: *common
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgres
+  database: <%= ENV.fetch("DATABASE_URL") %>
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *common
   adapter: sqlite3
@@ -18,4 +15,4 @@ test:
 production:
   adapter: postgres
   <<: *common
-  database: db/production.sqlite3
+  database: <%= ENV.fetch("DATABASE_URL") %>
