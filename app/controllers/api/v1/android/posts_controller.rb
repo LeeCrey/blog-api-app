@@ -31,7 +31,7 @@ class Api::V1::Android::PostsController < ApplicationController
     authorize @post
 
     if @post.update(post_params)
-      render json: @post, status: :ok
+      render_success(I18n.t('updated', res: 'Post'), :ok)
     else
       render json: { errors: @post.errors }, status: :unprocessable_entity
     end
