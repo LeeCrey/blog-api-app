@@ -14,7 +14,15 @@ Rails.application.routes.draw do
                unlocks: "users/unlocks",
              }
 
-  resources :posts do
-    resources :comments, shallow: true
+  defaults format: :json do
+    namespace :api do
+      namespace :v1 do
+        namespace :android do
+          resources :posts, shallow: true do
+            resources :comments
+          end
+        end
+      end
+    end
   end
 end
