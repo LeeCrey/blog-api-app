@@ -9,14 +9,14 @@ class Api::V1::Android::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[update destroy]
 
-  # GET /posts
+  # GET /api/v1/android/posts
   def index
     @posts = Post.includes(:user, [:comments]).page(params[:p])
 
     render json: @posts
   end
 
-  # POST /posts
+  # POST /api/v1/android/posts
   def create
     @post = current_user.posts.new(post_params)
 
@@ -27,7 +27,7 @@ class Api::V1::Android::PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
+  # PATCH/PUT api/v1/android/posts/:id
   def update
     authorize @post
 
@@ -38,7 +38,7 @@ class Api::V1::Android::PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
+  # DELETE api/v1/android/posts/:id
   def destroy
     authorize @post
 
