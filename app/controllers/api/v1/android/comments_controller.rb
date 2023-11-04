@@ -7,17 +7,17 @@ class Api::V1::Android::CommentsController < ApplicationController
   include Pundit::Authorization
 
   before_action :authenticate_user!
-  before_action :set_comment, only: %i[show update destroy]
+  before_action :set_comment, only: %i[update destroy]
   before_action :set_post, only: %i[index create]
 
-  # GET /posts/:post_id/comments
+  # GET /api/v1/android/posts/:post_id/comments
   def index
     @comments = @post.comments
 
     render json: @comments
   end
 
-  # POST /posts/:post_id/comments
+  # POST /api/v1/android/posts/:post_id/comments
   def create
     @comment = @post.comments.new(comment_params)
     @comment.user_id = @current_user.id
@@ -29,7 +29,7 @@ class Api::V1::Android::CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/:id
+  # PATCH/PUT /api/v1/android/comments/:id
   def update
     authorize @comment
 
@@ -40,7 +40,7 @@ class Api::V1::Android::CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/:id
+  # DELETE /api/v1/android/comments/:id
   def destroy
     authorize @comment
 
