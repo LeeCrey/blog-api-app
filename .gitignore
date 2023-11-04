@@ -61,4 +61,4 @@ bower.json
 
 /config/master.key
 
-api_test.sh
+config/application.yml
