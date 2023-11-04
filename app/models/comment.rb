@@ -19,4 +19,6 @@ class Comment < ApplicationRecord
 
   # Validations
   validates :content, presence: true
+
+  counter_culture :post, touch: true
 end
