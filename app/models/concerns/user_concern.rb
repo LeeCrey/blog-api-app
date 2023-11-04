@@ -6,6 +6,11 @@ module UserConcern
   included do
     acts_as_voter
 
+    with_options dependent: :destroy do
+      has_many :posts
+      has_many :comments
+    end
+
     validates :first_name, presence: true, length: { within: 1..30 }
     # last can be nil but if it exist, its length should not exceed 30 chars
     validates :last_name, length: { within: 1..30 }, if: -> { last_name.present? }
