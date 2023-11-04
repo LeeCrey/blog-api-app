@@ -57,13 +57,15 @@ class Api::V1::Android::CommentsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
-    @comment = Comment.find_by_id(params[:id])
-    raise CommentNotFoundException if @comment.blank?
+    @comment = Comment.find_by(id: params[:id])
+
+    raise_if_blank(@comment)
   end
 
   def set_post
-    @post = Post.find_by_id(params[:post_id])
-    raise PostNotFoundException if @post.blank?
+    @post = Post.find_by(id: params[:post_id])
+
+    raise_if_blank(@post)
   end
 
   # Only allow a list of trusted parameters through.
