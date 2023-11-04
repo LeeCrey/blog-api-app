@@ -4,6 +4,8 @@ module UserConcern
   extend ActiveSupport::Concern
 
   included do
+    acts_as_voter
+
     validates :first_name, presence: true, length: { within: 1..30 }
     # last can be nil but if it exist, its length should not exceed 30 chars
     validates :last_name, length: { within: 1..30 }, if: -> { last_name.present? }
