@@ -36,26 +36,24 @@ class Api::V1::Android::CommentsController < ApplicationController
 
   # PATCH/PUT /comments/:id
   def update
-    check_user_permission_for(@comment) do |comment|
-      if comment.update(comment_params)
-        render json: comment, status: :ok
-      else
-        render json: comment.errors, status: :unprocessable_entity
-      end
+    authorize @comment
+
+    if @comment.update(comment_params)
+      render json: @comment, status: :ok
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /comments/:id
   def destroy
-    check_user_permission_for(@comment) do |comment|
-      comment.destroy
-      head :no_content
-    end
+    authorize @comment
+
+    @comment.destroy
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find_by(id: params[:id])
 
@@ -68,7 +66,6 @@ class Api::V1::Android::CommentsController < ApplicationController
     raise_if_blank(@post)
   end
 
-  # Only allow a list of trusted parameters through.
   def comment_params
     params.require(:comment).permit(:content)
   end
