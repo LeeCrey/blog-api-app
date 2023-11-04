@@ -42,8 +42,6 @@ class Api::V1::Android::PostsController < ApplicationController
     authorize @post
 
     @post.destroy
-
-    head :no_content
   end
 
   private
