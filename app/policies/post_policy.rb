@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class PostPolicy < ApplicationPolicy
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+  private
+
+  def check
+    @record.user_id == @user.id
   end
 end
