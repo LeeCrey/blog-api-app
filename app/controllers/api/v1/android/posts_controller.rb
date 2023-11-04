@@ -11,7 +11,7 @@ class Api::V1::Android::PostsController < ApplicationController
 
   # GET /api/v1/android/posts
   def index
-    posts = Post.includes(:user, [:comments])
+    posts = Post.includes(:user)
     @pagy, @posts = pagy(posts)
   end
 
