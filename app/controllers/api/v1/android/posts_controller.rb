@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class Api::V1::Android::PostsController < ApplicationController
   protect_from_forgery with: :null_session
   respond_to :json
 

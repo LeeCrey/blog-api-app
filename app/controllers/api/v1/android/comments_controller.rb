@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentsController < ApplicationController
+class Api::V1::Android::CommentsController < ApplicationController
   before_action :set_comment, only: %i[show update destroy]
   before_action :set_post, only: %i[index create]
 
