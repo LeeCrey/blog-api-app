@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   protected
 
   def update_last_seen_at
-    current_user.touch :last_seen_at unless current_user.online?
+    current_user.touch :last_seen_at unless current_user.online? # rubocop:disable Rails/SkipsModelValidations
   end
 
   def render_json_error(msg, code)
