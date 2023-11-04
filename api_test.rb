@@ -1,3 +1,0 @@
-require 'faraday'
-
-# unfinished
