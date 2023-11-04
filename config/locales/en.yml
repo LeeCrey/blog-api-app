@@ -1,3 +1,4 @@
 en:
   not_found: "%{resource} not found"
   created: "%{res} was successfully created."
+  updated: "%{res} was successfully updated."
