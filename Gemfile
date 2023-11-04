@@ -21,9 +21,5 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails', require: false
   gem 'figaro'
-end
-
-group :development do
   gem 'faker', '~> 2.19'
-  gem 'sqlite3', '~> 1.4'
 end
