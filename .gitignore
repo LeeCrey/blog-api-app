@@ -62,4 +62,3 @@ bower.json
 /config/master.key
 
 config/application.yml
-/Gemfile.lock
