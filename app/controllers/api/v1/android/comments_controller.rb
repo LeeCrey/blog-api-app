@@ -22,7 +22,7 @@ class Api::V1::Android::CommentsController < ApplicationController
     @comment.user_id = @current_user.id
 
     if @comment.save
-      render json: @comment, status: :created
+      render :create, status: :created
     else
       render json: { ok: false, errors: @comment.errors }, status: :unprocessable_entity
     end
@@ -51,13 +51,13 @@ class Api::V1::Android::CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find_by(id: params[:id])
 
-    raise_if_blank(@comment)
+    raise_if_blank(@comment, 'Comment')
   end
 
   def set_post
     @post = Post.find_by(id: params[:post_id])
 
-    raise_if_blank(@post)
+    raise_if_blank(@post, 'Post')
   end
 
   def comment_params
