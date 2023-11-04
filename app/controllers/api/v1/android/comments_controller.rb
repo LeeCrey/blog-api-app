@@ -17,11 +17,6 @@ class Api::V1::Android::CommentsController < ApplicationController
     render json: @comments
   end
 
-  # GET /comments/:id
-  def show
-    render json: @comment
-  end
-
   # POST /posts/:post_id/comments
   def create
     @comment = @post.comments.new(comment_params)
