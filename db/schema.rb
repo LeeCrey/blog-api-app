@@ -34,9 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_074922) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
     t.text "content", null: false
     t.bigint "user_id", null: false
+    t.integer "cached_votes_up", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
