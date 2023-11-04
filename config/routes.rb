@@ -1,9 +1,18 @@
-Rails.application.routes.draw do
-  root 'authentication#create'
+# frozen_string_literal: true
 
-  post 'register' => 'registration#create'
-  post 'login' => 'authentication#create'
-  delete 'users' => 'registration#destroy'
+Rails.application.routes.draw do
+  devise_for :users,
+             path_names: {
+               sign_in: :login,
+               sign_up: :register,
+               sign_out: :logout,
+             },
+             controllers: {
+               sessions: "users/sessions",
+               registrations: "users/registrations",
+               passwords: "users/passwords",
+               unlocks: "users/unlocks",
+             }
 
   resources :posts do
     resources :comments, shallow: true
