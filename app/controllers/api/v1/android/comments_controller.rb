@@ -19,7 +19,7 @@ class Api::V1::Android::CommentsController < ApplicationController
   # POST /api/v1/android/posts/:post_id/comments
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.user_id = @current_user.id
+    @comment.user_id = current_user.id
 
     if @comment.save
       render :create, status: :created
