@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
 class Api::V1::Android::PostsController < ApplicationController
-  protect_from_forgery with: :null_session
   respond_to :json
 
   include Pundit::Authorization
+  include Pagy::Backend
 
   before_action :authenticate_user!
   before_action :set_post, only: %i[update destroy]
 
   # GET /api/v1/android/posts
   def index
-    @posts = Post.includes(:user, [:comments]).page(params[:p])
-
-    render json: @posts
+    posts = Post.includes(:user, [:comments])
+    @pagy, @posts = pagy(posts)
   end
 
   # POST /api/v1/android/posts
