@@ -33,7 +33,7 @@ class Api::V1::Android::CommentsController < ApplicationController
     authorize @comment
 
     if @comment.update(comment_params)
-      render json: @comment, status: :ok
+      render_success(I18n.t('updated', res: 'Comment'), :ok)
     else
       render json: { ok: false, errors: @comment.errors }, status: :unprocessable_entity
     end
