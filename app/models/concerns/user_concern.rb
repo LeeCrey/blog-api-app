@@ -14,4 +14,9 @@ module UserConcern
 
     "#{first_name} #{last_name}"
   end
+
+  # methods
+  def online?
+    !!(last_seen_at&.> 3.minutes.ago)
+  end
 end
